@@ -1,55 +1,14 @@
-
 import "bootstrap";
 import "./style.css";
 
-import office1 from "./assets/img/office1.jpg";
-import office2 from "./assets/img/office2.jpg";
-import office3 from "./assets/img/office3.jpg";
-import office4 from "./assets/img/office4.jpg";
-
-let who = [
-  "I",
-  "My cat",
-  "The traffic",
-  "My calendar",
-  "My stapler",
-  "My coffee machine",
-  "The internet",
-  "My responsibilities",
-  "The office door",
-  "My phone",
-  "My reflection"
+const images = [
+  "/img/office1.jpg",
+  "/img/office2.jpg",
+  "/img/office3.jpg",
+  "/img/office4.jpg"
 ];
 
-let action = [
-  "couldn’t come in because",
-  "made me late because",
-  "refused to cooperate because",
-  "decided to betray me because",
-  "stopped me because",
-  "started a fight with me because",
-  "completely failed because",
-  "kidnapped me because",
-  "wouldn’t let me in because",
-  "ignored me because"
-];
-
-let what = [
-  "I was having a mental health day",
-  "it needed emotional support",
-  "there was a parade of ducks",
-  "it thought today was Friday",
-  "it was stuck in Jell-O",
-  "we had an argument",
-  "it went down",
-  "they took over my morning",
-  "it got jealous",
-  "it entered witness protection",
-  "I had an existential crisis",
-  "I questioned my entire existence"
-];
-
-let when = [
+const when = [
   "this morning",
   "on my way to work",
   "right before the meeting",
@@ -62,34 +21,40 @@ let when = [
   "exactly when productivity started"
 ];
 
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+const excuses = [
+  { who: "I", what: "couldn’t come in", why: "because I was having a mental health day" },
+  { who: "I", what: "made me late", why: "because I had an existential crisis" },
+  { who: "My cat", what: "ignored me", why: "because it needed emotional support" },
+  { who: "My cat", what: "refused to cooperate", why: "because we had an argument" },
+  { who: "My stapler", what: "wouldn’t let me work", why: "because it ran out of ink" },
+  { who: "My coffee machine", what: "stopped working", why: "because it thought today was Friday" },
+  { who: "The traffic", what: "made me late", why: "because there was a parade of ducks" },
+  { who: "The internet", what: "completely failed", why: "because it went down" },
+  { who: "My responsibilities", what: "kidnapped me", why: "because they took over my morning" },
+  { who: "The office door", what: "wouldn’t let me in", why: "because it was stuck" },
+  { who: "My phone", what: "ignored me", why: "because it got jealous" },
+  { who: "My reflection", what: "decided to betray me", why: "because I questioned my entire existence" }
+];
 
 function getRandom(array) {
-  return array[getRandomNumber(0, array.length - 1)];
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+function generateExcuse() {
+  const excuse = getRandom(excuses);
+  const randomWhen = getRandom(when);
+
+  const excuseText = excuse.who + " " + excuse.what + " " + excuse.why + " " + randomWhen;
+
+  const excuseContainer = document.querySelector("#excuse");
+  const excuseImage = document.querySelector("#excuse-image");
+
+  excuseContainer.textContent = excuseText;
+  excuseImage.src = getRandom(images);
 }
 
 window.onload = function () {
-console.log("Hello Burcu from the console!");
-
-  let excuseText =
-    getRandom(who) + " " +
-    getRandom(action) + " " +
-    getRandom(what) + " " +
-    getRandom(when);
-
-let excuseContainer = document.querySelector("#excuse");
-
-let images = [office1, office2, office3, office4];
-let randomImage = getRandom(images);
-
-let img = document.createElement("img");
-img.src = randomImage;
-img.alt = "Excuse image";
-
-excuseContainer.innerHTML = "";
-excuseContainer.appendChild(img);
-excuseContainer.appendChild(document.createTextNode(excuseText));
-
+  const button = document.querySelector("#generate-excuse");
+  button.addEventListener("click", generateExcuse);
+  generateExcuse();
 };

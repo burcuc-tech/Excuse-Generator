@@ -1,4 +1,3 @@
-
 body {
     background: white;
     font-family: Arial, sans-serif;
@@ -6,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 
 #title {
     font-size: 2.5rem;
@@ -24,39 +22,35 @@ body {
     text-align: center;
 }
 
-#generate-excuse {
-    background-color: #ff6347;
-    color: white;
-    font-size: 1.25rem;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+#excuse-image-container {
+    text-align: center;
     margin: 20px auto;
-    display: inline-block;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-#generate-excuse:hover {
-    transform: scale(1.05);
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+#excuse-image {
+    width: 300px;   
+    height: 200px;     
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
 }
 
 #excuse {
-    display: inline-block; 
-    font-size: 22px;
-    font-weight: 500;
-    margin: 30px auto 50px auto;
     background-color: #fff8dc;
     border: 2px solid #f0e68c;
     border-radius: 12px;
     padding: 25px 30px;
     max-width: 600px;
+    margin: 20px auto;
     box-shadow: 4px 4px 15px rgba(0,0,0,0.15);
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    position: relative;
+    font-size: 22px;
+    font-weight: 500;
     line-height: 1.5;
     text-align: center;
+    position: relative;
 }
 
 #excuse::before {
@@ -71,12 +65,22 @@ body {
     border-radius: 3px;
 }
 
-#excuse img {
-    max-width: 300px;
+#generate-excuse {
+    background-color: #ff6347;
+    color: white;
+    font-size: 1.25rem;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
     display: block;
-    margin: 1rem auto;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    margin: 20px auto 50px auto;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#generate-excuse:hover {
+    transform: scale(1.05);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
 }
 
 .fixed-bottom {

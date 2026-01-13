@@ -4,14 +4,14 @@ import "./style.css";
 window.onload = function() {
 
   const images = [
-    "/img/office1.jpg",
-    "/img/office2.jpg",
-    "/img/office3.jpg",
-    "/img/office4.jpg",
-    "/img/office5.jpg",
-    "/img/office6.jpg",
-    "/img/office7.jpg",
-    "/img/office8.jpg",
+    "/assets/img/office1.jpg",
+    "/assets/img/office2.jpg",
+    "/assets/img/office3.jpg",
+    "/assets/img/office4.jpg",
+    "/assets/img/office5.jpg",
+    "/assets/img/office6.jpg",
+    "/assets/img/office7.jpg",
+    "/assets/img/office8.jpg",
   ];
 
   const who = ["I", "Dwight", "Ryan", "HR", "Corporate"];

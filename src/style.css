@@ -7,19 +7,9 @@ body {
 }
 
 #title {
-    font-size: 2.5rem;
+    font-size: 30px;
     margin-top: 50px;
-}
-
-#description {
-    background-color: #ff6347; 
-    color: white;   
-    font-size: 1.25rem;    
-    padding: 15px 20px;
-    border-radius: 8px;
-    display: inline-block;
-    margin: 20px auto;
-    text-align: center;
+    color: #ff6347;
 }
 
 #excuse-image-container {
@@ -42,33 +32,39 @@ body {
     border: 2px solid #f0e68c;
     border-radius: 12px;
     padding: 25px 30px;
-    max-width: 600px;
     margin: 20px auto;
     box-shadow: 4px 4px 15px rgba(0,0,0,0.15);
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 1.5;
     text-align: center;
     position: relative;
+    width: 600px;
+    max-width: 90%;
+    box-sizing: border-box;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #excuse::before {
     content: "";
     position: absolute;
-    top: -10px;
-    left: 25px;
-    width: 40px;
-    height: 10px;
+    top: 5px;
+    left: -10px;
+    width: 100px;
+    height: 15px;
     background-color: #ff6347;
-    transform: rotate(-15deg);
+    transform: rotate(-20deg);
     border-radius: 3px;
 }
 
 #generate-excuse {
     background-color: #ff6347;
     color: white;
-    font-size: 1.25rem;
+    font-size: 20px;
     padding: 15px 25px;
     border: none;
     border-radius: 8px;
@@ -76,6 +72,9 @@ body {
     display: block;
     margin: 20px auto 50px auto;
     transition: transform 0.2s, box-shadow 0.2s;
+    width: 600px;
+    max-width: 90%;
+    box-sizing: border-box;
 }
 
 #generate-excuse:hover {
@@ -85,7 +84,7 @@ body {
 
 .fixed-bottom {
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #555;
     padding: 10px;
 }

@@ -1,60 +1,75 @@
 import "bootstrap";
 import "./style.css";
 
-const images = [
-  "/img/office1.jpg",
-  "/img/office2.jpg",
-  "/img/office3.jpg",
-  "/img/office4.jpg"
-];
+window.onload = function() {
 
-const when = [
-  "this morning",
-  "on my way to work",
-  "right before the meeting",
-  "during working hours",
-  "at the front door",
-  "before I could start working",
-  "all day",
-  "around 9 a.m.",
-  "at 11 a.m.",
-  "exactly when productivity started"
-];
+  const images = [
+    "/img/office1.jpg",
+    "/img/office2.jpg",
+    "/img/office3.jpg",
+    "/img/office4.jpg",
+    "/img/office5.jpg",
+    "/img/office6.jpg",
+    "/img/office7.jpg",
+    "/img/office8.jpg",
+  ];
 
-const excuses = [
-  { who: "I", what: "couldn’t come in", why: "because I was having a mental health day" },
-  { who: "I", what: "made me late", why: "because I had an existential crisis" },
-  { who: "My cat", what: "ignored me", why: "because it needed emotional support" },
-  { who: "My cat", what: "refused to cooperate", why: "because we had an argument" },
-  { who: "My stapler", what: "wouldn’t let me work", why: "because it ran out of ink" },
-  { who: "My coffee machine", what: "stopped working", why: "because it thought today was Friday" },
-  { who: "The traffic", what: "made me late", why: "because there was a parade of ducks" },
-  { who: "The internet", what: "completely failed", why: "because it went down" },
-  { who: "My responsibilities", what: "kidnapped me", why: "because they took over my morning" },
-  { who: "The office door", what: "wouldn’t let me in", why: "because it was stuck" },
-  { who: "My phone", what: "ignored me", why: "because it got jealous" },
-  { who: "My reflection", what: "decided to betray me", why: "because I questioned my entire existence" }
-];
+  const who = ["I", "Dwight", "Ryan", "HR", "Corporate"];
 
-function getRandom(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
+  const action = [
+    "was late",
+    "couldn’t finish the report",
+    "refused to cooperate",
+    "completely misunderstood the task",
+    "wanted an explanation"
+  ];
 
-function generateExcuse() {
-  const excuse = getRandom(excuses);
-  const randomWhen = getRandom(when);
+  const when = [
+    "this morning",
+    "today",
+    "yesterday",
+    "earlier",
+    "just now",
+    "during work",
+    "right before the meeting"
+  ];
 
-  const excuseText = excuse.who + " " + excuse.what + " " + excuse.why + " " + randomWhen;
+  const why = [
+    "because I burned my foot very badly on my Foreman grill",
+    "because I am not superstitious, but I am a little stitious",
+    "because sometimes I start a sentence and I don’t even know where it’s going",
+    "because I declared bankruptcy",
+    "because I said I am Beyoncé, always",
+    "because would I rather be feared or loved? Easy. Both",
+    "because I told them I don’t hate Toby, I just don’t like him at all",
+    "because I cause no harm, but I am also not helpful",
+    "because I am running away from my responsibilities and it feels good",
+    "because Ryan hid all the paper clips and now nothing can be done",
+    "because I enjoy having breakfast in bed with a Foreman grill"
+  ];
 
-  const excuseContainer = document.querySelector("#excuse");
-  const excuseImage = document.querySelector("#excuse-image");
 
-  excuseContainer.textContent = excuseText;
-  excuseImage.src = getRandom(images);
-}
+  function getRandom(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
 
-window.onload = function () {
-  const button = document.querySelector("#generate-excuse");
-  button.addEventListener("click", generateExcuse);
+  function generateExcuse() {
+    const rdmWho = getRandom(who);
+    const rdmAction = getRandom(action);
+    const rdmWhen = getRandom(when);
+    const rdmWhy = getRandom(why);
+    const rdmImage = getRandom(images);
+
+    const excuse =
+      rdmWho + " " + rdmAction + " " + rdmWhen + " " + rdmWhy + ".";
+
+    document.querySelector("#excuse").textContent = excuse;
+    document.querySelector("#excuse-image").src = rdmImage;
+  }
+
+  document
+    .querySelector("#generate-excuse")
+    .addEventListener("click", generateExcuse);
+
   generateExcuse();
 };
